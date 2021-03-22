@@ -13,7 +13,6 @@ pwreg = /^[a-zA-Z]\w{3,14}$/;
   });*/
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main-nav").style.marginLeft = "250px";
 }
 
 function closeNav() {
