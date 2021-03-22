@@ -9,33 +9,41 @@
   margin: 0;
   padding: 0;
 }
-
+html {
+  width: 100%;
+}
+body {
+  width: 100%;
+}
 .top-header {
+  z-index: 1;
   display: flex;
+  justify-content: space-between;
   height: 70px;
   width: 100%;
   background-color: #131313;
 }
 .top-header-container {
-  margin-left: 300px;
   display: flex;
-  width: 100%;
   z-index: 1;
-  justify-content: space-between;
 }
+
 .top-header-title {
   color: #f1f1f1;
-  font-size: 30px;
+  width: 100%;
+  font-size: 25px;
+  margin-right: auto;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 .top-header-button {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  float: right;
   align-items: center;
-  padding: 0 2rem;
 }
-.button {
+.header-button {
   margin-right: 10px;
   display: flex;
   justify-content: center;
@@ -50,7 +58,7 @@
   color: #fff;
 }
 
-.button:hover {
+.header-button:hover {
   background: #4837ff;
   transition: all 0.3s ease;
 }
@@ -59,9 +67,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  z-index: 99;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
@@ -97,6 +103,7 @@
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
+    width: 100%;
   }
   .sidenav a {
     font-size: 18px;
@@ -107,38 +114,10 @@
   padding: 20px;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
-
-/*button {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}*/
-
 button:hover {
   opacity: 1;
 }
@@ -149,8 +128,11 @@ button:hover {
   width: 50%;
 }
 
-.container {
+.signup-container {
   padding: 16px;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .clearfix::after {
@@ -248,6 +230,9 @@ input[type="submit"]:hover {
 .contact-div h1 {
   text-align: center;
 }
+.map-container {
+  width: 100%;
+}
 .gmap_canvas {
   overflow: hidden;
   background: none !important;
@@ -322,7 +307,10 @@ input[type="submit"]:hover {
   text-align: center;
   font-size: 45px;
 }
-
+.button-center-div {
+  width: 100%;
+  text-align: center;
+}
 .button-center {
   align-items: center;
   text-decoration: none;
@@ -334,11 +322,12 @@ input[type="submit"]:hover {
   border-radius: 20px;
   background: #f77062;
   color: #fff;
-  margin-left: 300px;
-  margin-right: auto;
+}
+.button-explore-div {
+  width: 100%;
+  text-align: center;
 }
 .button-explore {
-  margin-left: 300px;
   align-items: center;
   text-decoration: none;
   padding: 10px 20px;
@@ -352,6 +341,7 @@ input[type="submit"]:hover {
   color: #fff;
   transition: all 0.3s ease;
 }
+
 /*bookstore*/
 img {
   width: 100%;
@@ -428,6 +418,7 @@ img {
 }
 .btn-cart,
 .btn-buy {
+  z-index: 99;
   background: transparent;
   border: 1px solid black;
   padding: 0.8rem 0;
@@ -462,9 +453,40 @@ img {
   align-items: center;
 }
 
-.rating_stars span {
-  color: var(--carribean-green);
+.rate {
+  width: 100%;
+  float: left;
+  height: 46px;
+  padding: 0 10px;
 }
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 0.8em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+.rate:not(:checked) > label::before {
+  content: "★";
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
 .product-name {
   color: black;
   display: block;
@@ -573,4 +595,49 @@ main button {
   margin-right: auto;
   width: 50%;
   text-align: center;
+}
+@media screen and (max-width: 320px) {
+  .sidenav #mySidenav {
+    width: 100%;
+  }
+  .main-content-center-signup {
+    margin-top: 0;
+  }
+  .main-content-center-signup h1 {
+    font-size: 25px;
+  }
+  .top-header-title {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sidenav #mySidenav {
+    width: 100%;
+  }
+  .top-header-title {
+    font-size: 21px;
+  }
+
+  .footer1 {
+    align-items: center;
+    height: 100%;
+    text-align: center;
+  }
+  .footer-content1 {
+    display: block;
+    text-align: center;
+    align-items: center;
+  }
+  .main-content-center-signup {
+    margin-top: 250px;
+    width: 100%;
+  }
+  .top-header-container {
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .top-header-container {
+    margin-left: 20px;
+  }
 }
