@@ -12,7 +12,6 @@ function bookSearch() {
     },
     type: "GET",
   });
-  generisiNoviId();
 }
 document
   .getElementById("button-search")
