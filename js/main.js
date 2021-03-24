@@ -1,16 +1,16 @@
 let reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 let valid = true;
 pwreg = /^[a-zA-Z]\w{3,14}$/;
-/*document
+document
   .getElementById("myForm")
   .addEventListener("submit", function validacija(e) {
     e.preventDefault();
-    validationEmail();
-    validationPw();
     if (validationEmail(valid) == true && validationPw(valid) == true) {
       document.getElementById("myForm").submit();
     }
-  });*/
+    console.log(valid);
+    console.log(document.myForm);
+  });
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
 }
