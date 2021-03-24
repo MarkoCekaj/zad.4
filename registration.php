@@ -14,5 +14,5 @@ if ($num == 1) {
     $reg = "insert into usertable(email , password) values ('$email', '$pass')";
     mysqli_query($con, $reg);
     echo "reggg succc";
-    header("Location: login.php");
+    header("Location: login.html");
 }
