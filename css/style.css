@@ -560,6 +560,8 @@ main {
 .main-wrapper {
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
+  margin-bottom: 140px;
 }
 .main-container {
   padding-left: 100px;
@@ -573,11 +575,16 @@ main button {
 }
 .wishlist-forms {
   display: flex;
+  flex-direction: row;
 }
 #form {
   width: 50%;
   margin: auto;
   text-align: center;
+  box-shadow: 0px 5px 14px #00000022;
+  border-radius: 3px;
+  border: 3px;
+  background-color: #ffffff;
 }
 #form input {
   width: 50%;
@@ -586,6 +593,10 @@ main button {
   width: 50%;
   margin: auto;
   text-align: center;
+  box-shadow: 0px 5px 14px #00000022;
+  border-radius: 3px;
+  border: 3px;
+  background-color: #ffffff;
 }
 #form2 input {
   width: 50%;
@@ -647,6 +658,12 @@ main button {
   .top-header-container {
     margin-left: 20px;
   }
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 1024px) {
   .main-wrapper {
     display: flex;
     flex-direction: column;
