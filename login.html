@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="theme-color" content="#fafafa" />
+  </head>
+
+  <body>
+    <div class="top-header">
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <a href="/index.html">Home</a>
+        <a href="bookstore.html">Book store</a>
+        <a href="/signup.html">Sign up</a>
+        <a href="contact.html">Contact</a>
+        <a href="wishlist.html">Wishlist</a>
+      </div>
+
+      <div id="main-nav">
+        <span
+          style="font-size: 30px; cursor: pointer; color: white"
+          onclick="openNav()"
+          >&#9776;
+        </span>
+      </div>
+      <div class="top-header-container">
+        <div class="top-header-title"><i class="fas fa-book"></i>E-Book</div>
+        <div class="top-header-button"></div>
+      </div>
+    </div>
+    <div class="form-login-div">
+      <form class="form-login" action="validation.php" method="post">
+        <div class="container-login">
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+
+          <label for="password"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+
+          <button name="but_submit" type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1"></div>
+      </form>
+    </div>
+    <div class="footer1">
+      <div class="footer-container1">
+        <div class="footer-content1">
+          <ul>
+            <h3 id="footer-content-title">Pages</h3>
+            <a href="index.html">
+              <li>Home</li>
+            </a>
+            <a href="bookstore.html">
+              <li>Book store</li>
+            </a>
+            <a href="signup.html">
+              <li>Sign Up</li>
+            </a>
+            <a href="contact.html">
+              <li>Contact</li>
+            </a>
+          </ul>
+          <ul>
+            <h3 id="footer-content-title">Contact</h3>
+            <a>
+              <li>Tel: +382 51 020 103</li>
+            </a>
+            <a>
+              <li>Email:bookstore@gmail.com</li>
+            </a>
+            <a>
+              <li>Address: Dalmatinska 4</li>
+            </a>
+          </ul>
+          <ul>
+            <h3 id="footer-content-title">Social</h3>
+            <a href="#">
+              <li><i class="fab fa-facebook"></i></li>
+            </a>
+            <a href="#">
+              <li><i class="fab fa-twitter"></i></li>
+            </a>
+            <a href="#">
+              <li><i class="fab fa-instagram"></i></li>
+            </a>
+            <a href="#">
+              <li><i class="fab fa-youtube"></i></li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
