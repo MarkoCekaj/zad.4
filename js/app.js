@@ -1,8 +1,13 @@
 const books = [
-  { name: "GOT", year: 1992 },
-  { name: "Secret", year: 1981 },
-  { name: "Don Quihote", year: 1991 },
-  { name: "Ulyses", year: 1999 },
+  { name: "GOT", year: 1992, author: "George R.R. Martin", genre: "dasdasdas" },
+  { name: "Secret", year: 1981, author: " This This", genre: "dasdasda" },
+  { name: "Don Quihote", year: 1991, author: "Bla bla", genre: "dasdasdsad" },
+  {
+    name: "Ulyses",
+    year: 1999,
+    author: "Bla bla bla bla",
+    genre: "dasdasdasda",
+  },
 ];
 
 //document.querySelector takes a css selector and returns the first element that matches that selector
@@ -11,25 +16,24 @@ const mainDiv = document.querySelector("main"); // returns the one main element 
 //below we will add our form inputs to some global variables
 const nameInput = document.querySelector('input[name="name"]'); //selecting the input with name property "name"
 const yearInput = document.querySelector('input[name="year"]'); //selecting the input with name property "name"
+const authorInput = document.querySelector('input[name="author"]');
+const genreInput = document.querySelector('input[name="genre"]');
 const createButton = document.querySelector("button#createitem"); //select button with id "createitem"
 
 //below we will add our update form inputs to some global variables
 const updateName = document.querySelector('input[name="updatename"]'); //selecting the input with name property "name"
 const updateYear = document.querySelector('input[name="updateyear"]'); //selecting the input with name property "name"
+const updateAuthor = document.querySelector('input[name="updateauthor"]');
+const updateGenre = document.querySelector('input[name="updategenre"]');
 const updateFormButton = document.querySelector("button#updateitem"); //select button with id "createitem"
 
-///////////////////////
-// Functions
-///////////////////////
-
-//define function for rendering current data to DOM, use this whenever data changes
 const renderData = () => {
   //empty of the main div of any existing content
   mainDiv.innerHTML = "";
 
   //let us loop over the people array
   books.forEach((book, index) => {
-    const bookH1 = document.createElement("h1"); // Creates new h1 element
+    const bookDiv = document.createElement("div"); // Creates new h1 element
 
     const buttonContainer = document.createElement("aside"); //create aside to store update/delete buttons
 
@@ -50,12 +54,14 @@ const renderData = () => {
     updateButton.addEventListener("click", (event) => {
       updateName.value = book.name; //set form to show current name
       updateYear.value = book.year; //set form to show current age
+      updateAuthor.value = book.author;
+      updateGenre.value = book.genre;
       updateFormButton.setAttribute("toupdate", index); //custom attribute to use in the button event later
     });
     buttonContainer.appendChild(updateButton); //apend the delete button
 
-    bookH1.innerText = ` Book :${book.name} Published: ${book.year}`; //ads text to the h1
-    mainDiv.appendChild(bookH1); //append the h1 to the main element
+    bookDiv.innerHTML = `<p> Book :${book.name}</p><p> Published : ${book.year}</p><p> Author : ${book.author} </p> <p>Genre : ${book.genre}</p>`; //ads text to the h1
+    mainDiv.appendChild(bookDiv); //append the h1 to the main element
     mainDiv.appendChild(buttonContainer); //append container of update and delete button
   });
 };
@@ -63,7 +69,9 @@ const renderData = () => {
 const createData = () => {
   const name = nameInput.value; //store value from name input into name variable
   const year = yearInput.value; //store value from age input into age variable
-  const newBook = { name, year }; // create new person object
+  const author = authorInput.value;
+  const genre = genreInput.value;
+  const newBook = { name, year, author, genre }; // create new person object
   books.push(newBook); //push the new person object into the array
   renderData(); //render the data again so it reflects the new data
 };
@@ -72,7 +80,9 @@ const updateData = (event) => {
   const index = event.target.getAttribute("toupdate"); //get index we stored via custom attribute
   const name = updateName.value; //get value from form
   const year = updateYear.value; //get value from form
-  books[index] = { name, year }; //replace existing object at that index with a new with updated values
+  const author = updateAuthor.value;
+  const genre = updateGenre.value;
+  books[index] = { name, year, author, genre }; //replace existing object at that index with a new with updated values
   renderData(); //update the DOM with the new data
 };
 
