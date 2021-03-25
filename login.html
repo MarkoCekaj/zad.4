@@ -46,7 +46,12 @@
       </div>
     </div>
     <div class="form-login-div">
-      <form class="form-login" action="validation.php" method="post">
+      <form
+        class="form-login"
+        action="validation.php"
+        method="post"
+        id="myForm"
+      >
         <div class="container-login">
           <label for="email"><b>Email</b></label>
           <input
@@ -54,16 +59,18 @@
             placeholder="Enter Email"
             name="email"
             onkeyup="validationEmail()"
+            id="email"
           />
-
+          <p id="validation-warning"></p>
           <label for="password"><b>Password</b></label>
           <input
             type="password"
             placeholder="Enter Password"
             name="password"
             onkeyup="validationPw()"
+            id="password"
           />
-
+          <p id="validation-warning2"></p>
           <button name="but_submit" type="submit">Login</button>
           <label>
             <input type="checkbox" checked="checked" name="remember" /> Remember
