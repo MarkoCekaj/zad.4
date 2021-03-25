@@ -1,12 +1,27 @@
 const books = [
-  { name: "GOT", year: 1992, author: "George R.R. Martin", genre: "dasdasdas" },
-  { name: "Secret", year: 1981, author: " This This", genre: "dasdasda" },
-  { name: "Don Quihote", year: 1991, author: "Bla bla", genre: "dasdasdsad" },
+  {
+    name: "GOT",
+    year: 1996,
+    author: "George R.R. Martin",
+    genre: "Epic fantasy",
+  },
+  {
+    name: "Secret",
+    year: 2006,
+    author: "	Rhonda Byrne",
+    genre: "Self help",
+  },
+  {
+    name: "Don Quixote",
+    year: 1605,
+    author: "Miguel de Cervantes",
+    genre: "Novel",
+  },
   {
     name: "Ulyses",
-    year: 1999,
-    author: "Bla bla bla bla",
-    genre: "dasdasdasda",
+    year: 1922,
+    author: "James Joyce",
+    genre: "	Modernist novel",
   },
 ];
 
@@ -25,6 +40,7 @@ const updateName = document.querySelector('input[name="updatename"]'); //selecti
 const updateYear = document.querySelector('input[name="updateyear"]'); //selecting the input with name property "name"
 const updateAuthor = document.querySelector('input[name="updateauthor"]');
 const updateGenre = document.querySelector('input[name="updategenre"]');
+
 const updateFormButton = document.querySelector("button#updateitem"); //select button with id "createitem"
 
 const renderData = () => {
@@ -56,11 +72,12 @@ const renderData = () => {
       updateYear.value = book.year; //set form to show current age
       updateAuthor.value = book.author;
       updateGenre.value = book.genre;
+
       updateFormButton.setAttribute("toupdate", index); //custom attribute to use in the button event later
     });
     buttonContainer.appendChild(updateButton); //apend the delete button
 
-    bookDiv.innerHTML = `<p> Book :${book.name}</p><p> Published : ${book.year}</p><p> Author : ${book.author} </p> <p>Genre : ${book.genre}</p>`; //ads text to the h1
+    bookDiv.innerHTML = `<p> Book :${book.name}</p><p> Published : ${book.year}</p><p> Author : ${book.author} </p> <p>Genre : ${book.genre}</p>`;
     mainDiv.appendChild(bookDiv); //append the h1 to the main element
     mainDiv.appendChild(buttonContainer); //append container of update and delete button
   });
@@ -71,6 +88,7 @@ const createData = () => {
   const year = yearInput.value; //store value from age input into age variable
   const author = authorInput.value;
   const genre = genreInput.value;
+
   const newBook = { name, year, author, genre }; // create new person object
   books.push(newBook); //push the new person object into the array
   renderData(); //render the data again so it reflects the new data
@@ -82,13 +100,11 @@ const updateData = (event) => {
   const year = updateYear.value; //get value from form
   const author = updateAuthor.value;
   const genre = updateGenre.value;
+
   books[index] = { name, year, author, genre }; //replace existing object at that index with a new with updated values
   renderData(); //update the DOM with the new data
 };
 
-////////////////////
-// Main App Logic
-////////////////////
 renderData(); //call the render data function for the initial rendering of the data
 createButton.addEventListener("click", createData); //trigger create data function whenever createButton is clicked
 updateFormButton.addEventListener("click", updateData); //trigger update data function when updateButton is clicked
