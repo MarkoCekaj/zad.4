@@ -5,6 +5,8 @@ document
   .getElementById("myForm")
   .addEventListener("submit", function validacija(e) {
     e.preventDefault();
+    validationEmail();
+    validationPw();
     if (validationEmail(valid) == true && validationPw(valid) == true) {
       document.getElementById("myForm").submit();
     }
@@ -21,38 +23,50 @@ function closeNav() {
 }
 
 function validationEmail() {
-  let email = document.getElementById("email").value;
-  if (email.value == "") {
-    email.style.border = "2px solid red";
+  if (document.getElementById("email").value == "") {
+    document.getElementById("email").style.border = "2px solid red";
+    document.getElementById("email").style.margin = "7px 57px 0 0";
     document.getElementById(
       "validation-warning"
-    ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; ">Empty field!</i>`;
+    ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; ">Empty Field</i>`;
     valid = false;
-  } else if (email.match(reg)) {
-    email.border = "2px solid green";
+  } else if (document.getElementById("email").value.match(reg)) {
+    document.getElementById("email").style.border = "2px solid green";
     document.getElementById("validation-warning").innerHTML = null;
     valid = true;
   } else {
-    email.border = "2px solid red";
+    document.getElementById("email").style.border = "2px solid red";
+    document.getElementById("email").style.margin = "7px 57px 0 0";
     document.getElementById(
       "validation-warning"
-    ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; ">  E-mail mora biti u formatu example@google.com</i>`;
+    ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; "> E-mail format example@google.com</i>`;
     valid = false;
   }
   if (valid == false) {
-    focus();
+    document.getElementById("email").focus();
   }
   return valid;
 }
 function validationPw() {
-  let password1 = document.getElementById("password").value;
-  let password2 = document.getElementById("confirm_password").value;
   if (
-    password1.match(pwreg) &&
-    password2.match(pwreg) &&
-    password1 === password2
+    document.getElementById("password").value == "" &&
+    document.getElementById("confirm_password").value == ""
   ) {
-    confirm_password.style.border = "1px solid green";
+    document.getElementById(
+      "validation-warning2"
+    ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; ">Empty fields</i>`;
+    document.getElementById("password").style.border = "2px solid red";
+    document.getElementById("confirm_password").style.border = "2px solid red";
+    valid = false;
+  } else if (
+    document.getElementById("password").value.match(pwreg) &&
+    document.getElementById("confirm_password").value.match(pwreg) &&
+    document.getElementById("password").value ===
+      document.getElementById("confirm_password").value
+  ) {
+    document.getElementById("password").style.border = "2px solid green";
+    document.getElementById("confirm_password").style.border =
+      "1px solid green";
     document.getElementById("validation-warning2").innerHTML = null;
     valid = true;
   } else {
@@ -61,5 +75,6 @@ function validationPw() {
     ).innerHTML = `<i class="fa fa-exclamation-circle" style="font-size: 17px;color: red; ">Passwords are not matching</i>`;
     valid = false;
   }
+
   return valid;
 }
