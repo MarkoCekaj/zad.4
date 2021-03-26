@@ -96,6 +96,7 @@ const createData = () => {
   const newBook = { name, year, author, genre }; // create new person object
   books.push(newBook); //push the new person object into the array
   renderData(); //render the data again so it reflects the new data
+  $("#modal_dodavanje").modal("hide");
 };
 
 const updateData = (event) => {
@@ -107,6 +108,7 @@ const updateData = (event) => {
 
   books[index] = { name, year, author, genre }; //replace existing object at that index with a new with updated values
   renderData(); //update the DOM with the new data
+  $("#modal_izmjena").modal("hide");
 };
 
 renderData(); //call the render data function for the initial rendering of the data
