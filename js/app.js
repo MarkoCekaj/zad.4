@@ -8,7 +8,7 @@ const books = [
   {
     name: "Secret",
     year: 2006,
-    author: "	Rhonda Byrne",
+    author: "Rhonda Byrne",
     genre: "Self help",
   },
   {
@@ -21,7 +21,7 @@ const books = [
     name: "Ulyses",
     year: 1922,
     author: "James Joyce",
-    genre: "	Modernist novel",
+    genre: "Modernist novel",
   },
 ];
 
@@ -58,7 +58,10 @@ const renderData = () => {
     deleteButton.id = index;
     deleteButton.innerText = "Delete"; //make the delete button say "Delete"
     deleteButton.addEventListener("click", (event) => {
-      books.splice(index, 1); //remove the element at the current index
+      confirm(
+        "Are you sure you want to delete this book ?",
+        books.splice(index, 1)
+      ); //remove the element at the current index
       renderData(); //re-render the updated data to the DOM
     });
     buttonContainer.appendChild(deleteButton); //apend the delete button
@@ -72,9 +75,10 @@ const renderData = () => {
       updateYear.value = book.year; //set form to show current age
       updateAuthor.value = book.author;
       updateGenre.value = book.genre;
-
       updateFormButton.setAttribute("toupdate", index); //custom attribute to use in the button event later
+      $("#modal_izmjena").modal("show");
     });
+
     buttonContainer.appendChild(updateButton); //apend the delete button
 
     bookDiv.innerHTML = `<p> Book :${book.name}</p><p> Published : ${book.year}</p><p> Author : ${book.author} </p> <p>Genre : ${book.genre}</p>`;
