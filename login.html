@@ -50,7 +50,7 @@
         class="form-login"
         action="validation.php"
         method="post"
-        id="myForm"
+        id="myForm2"
       >
         <div class="container-login">
           <label for="email"><b>Email</b></label>
@@ -67,8 +67,8 @@
             type="password"
             placeholder="Enter Password"
             name="password"
-            onkeyup="validationPw()"
-            id="password"
+            onkeyup="validationPwLogin()"
+            id="passwordlogin"
           />
           <p id="validation-warning2"></p>
           <button name="but_submit" type="submit">Login</button>
@@ -129,6 +129,6 @@
         </div>
       </div>
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/loginvalid.js"></script>
   </body>
 </html>
