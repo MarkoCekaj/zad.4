@@ -1,6 +1,6 @@
 let reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 let valid = true;
-pwreg = /^[a-zA-Z]\w{3,14}$/;
+pwreg = /^[a-zA-Z]\w{8,14}$/;
 document
   .getElementById("myForm")
   .addEventListener("submit", function validacija(e) {
@@ -66,7 +66,7 @@ function validationPw() {
   ) {
     document.getElementById("password").style.border = "2px solid green";
     document.getElementById("confirm_password").style.border =
-      "1px solid green";
+      "2px solid green";
     document.getElementById("validation-warning2").innerHTML = null;
     valid = true;
   } else {
