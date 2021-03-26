@@ -9,7 +9,10 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -49,30 +52,100 @@
     <div class="main-wrapper">
       <main></main>
       <div class="wishlist-forms">
-        <div id="form">
-          <h2 id="addToListH2">Add new book</h2>
+        <button
+          class="btn btn-success btn-block mt-3"
+          data-toggle="modal"
+          data-target="#modal_dodavanje"
+        >
+          <i class="fa fa-plus"></i>Dodaj novu knjigu
+        </button>
+      </div>
+    </div>
+    <!--Modal-->
+    <div
+      class="modal fade"
+      id="modal_dodavanje"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Dodavanje nove knjige
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" name="name" placeholder="name" />
+            <input type="number" name="year" placeholder="year" />
+            <input type="text" name="author" placeholder="author" />
+            <input type="text" name="genre" placeholder="genre" />
+            <br />
 
-          <input type="text" name="name" placeholder="name" />
-          <input type="number" name="year" placeholder="year" />
-          <input type="text" name="author" placeholder="author" />
-          <input type="text" name="genre" placeholder="genre" />
-          <br />
-          <button id="createitem">Submit</button>
+            <button id="createitem" class="btn btn-success btn-block">
+              Dodaj novu knjigu
+            </button>
+          </div>
         </div>
-
-        <div id="form2">
-          <h2 id="updateListH2">Update List</h2>
-          <input type="text" name="updatename" placeholder="updated name" />
-          <input type="number" name="updateyear" placeholder="updated year" />
-          <input type="text" name="updateauthor" placeholder="update author" />
-          <input type="text" name="updategenre" placeholder="update genre" />
-          <br />
-          <button id="updateitem">Submit</button>
+      </div>
+    </div>
+    <!--End modal add-->
+    <!--Modal update-->
+    <div
+      class="modal fade"
+      id="modal_izmjena"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Izmjeni zadatak</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" name="updatename" placeholder="updated name" />
+            <input type="number" name="updateyear" placeholder="updated year" />
+            <input
+              type="text"
+              name="updateauthor"
+              placeholder="update author"
+            />
+            <input type="text" name="updategenre" placeholder="update genre" />
+            <button class="btn btn-success btn-block mt-3" id="updateitem">
+              Potvrdi izmjenu
+            </button>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-primary">Save changes</button>-->
+          </div>
         </div>
       </div>
     </div>
 
+    <!--End modal update-->
+
     <!--End Main-->
+
     <div class="footer1">
       <div class="footer-container1">
         <div class="footer-content1">
