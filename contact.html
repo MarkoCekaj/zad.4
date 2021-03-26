@@ -57,16 +57,16 @@
         <form method="POST" action="./contact.php" id="contact-form">
           <label for="fname">First Name</label>
           <input
-            required
+            onkeyup="validationName()"
             type="text"
             id="fname"
             name="firstname"
             placeholder="Your name.."
           />
-
+          <p id="validation-warning3"></p>
           <label for="lname">Last Name</label>
           <input
-            required
+            onkeyup="validationName()"
             type="text"
             id="lname"
             name="lastname"
@@ -83,12 +83,13 @@
 
           <label for="subject">Subject</label>
           <textarea
-            required
+            onkeyup="validationSubject()"
             id="subject"
             name="subject"
             placeholder="Write something.."
             style="height: 200px"
           ></textarea>
+          <p id="validation-warning4"></p>
 
           <input type="submit" value="Submit" />
         </form>
@@ -146,6 +147,7 @@
         </div>
       </div>
     </div>
+    <script src="js/contactvalid.js"></script>
     <script src="js/main.js"></script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
